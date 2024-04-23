@@ -4,6 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -84,50 +85,70 @@ class _HomeScreenState extends State<HomeScreen> {
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 500),
                 width: _isVisible ? 1500 : 100,
-                child: const Row(
+                child: Row(
                   children: [
-                     Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DefaultTextStyle(style: fontSize: 32, color: Colors.white54, child: AnimatedTextKit(child: Text(
-                          "Hello, I'm",
-                          style: TextStyle(fontSize: 32, color: Colors.white54),
-                        ), ,)),
-                        Text(
-                          "Hello, I'm",
-                          style: TextStyle(fontSize: 32, color: Colors.white54),
+                        AnimatedTextKit(
+                          isRepeatingAnimation: false,
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              "Hello, I'm",
+                              textStyle: TextStyle(
+                                fontSize: 32,
+                                color: Colors.white54,
+                              ),
+                              speed: const Duration(milliseconds: 100),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Mohith B M",
-                          style: TextStyle(
-                              fontSize: 36,
-                              color: Color.fromARGB(255, 77, 193, 255)),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Flutter Developer",
-                          style: TextStyle(fontSize: 36, color: Colors.white),
-                        ),
+                        AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                "Mohith B M",
+                                textStyle: TextStyle(
+                                  fontSize: 36,
+                                  color: Color.fromARGB(255, 77, 193, 255),
+                                ),
+                                speed: const Duration(milliseconds: 100),
+                              ),
+                            ]),
+                        AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                "Flutter Developer",
+                                textStyle: TextStyle(
+                                  fontSize: 36,
+                                  color: Colors.white,
+                                ),
+                                speed: const Duration(milliseconds: 100),
+                              ),
+                            ]),
                         SizedBox(
                           height: 10,
                         ),
                         Row(
                           children: [
-                            Text(
-                              "Building Apps  |",
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.white60),
-                            ),
-                            Text(
-                              "   Mohith, Flutter Dev",
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.white60),
-                            ),
+                            AnimatedTextKit(
+                                isRepeatingAnimation: false,
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    "Building Apps  |",
+                                    textStyle: TextStyle(
+                                        fontSize: 20, color: Colors.white60),
+                                  ),
+                                ]),
+                            AnimatedTextKit(  isRepeatingAnimation: false,
+                                animatedTexts: [
+                              TypewriterAnimatedText(
+                                "    Mohith, Flutter Dev",
+                                textStyle: TextStyle(
+                                    fontSize: 20, color: Colors.white60),
+                              )
+                            ])
                           ],
                         )
                       ],
@@ -135,30 +156,42 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: 450,
                     ),
-                    Container(
-                      height: 400,
-                      width: 400,
-                      child: Stack(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.black,
-                            radius: 200,
+                    AnimationConfiguration.synchronized(
+                      child: FlipAnimation(
+                        duration: const Duration(milliseconds: 1000),
+                        curve: Curves.easeInOut,
+                        child: Container(
+                          height: 400,
+                         decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue,),
+                          width: 400,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Stack(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.black,
+                                  radius: 200,
+                                ),
+                                Center(
+                                  child: CircleAvatar(
+                                    radius: 180,
+                                    backgroundImage: AssetImage("Assets/2.jpg"),
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 1,
+                                  child: Container(
+                                    height: 100,
+                                    width: 100,
+                                    decoration: FlutterLogoDecoration(),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          Center(
-                              child: CircleAvatar(
-                            radius: 180,
-                            backgroundImage: AssetImage("Assets/2.jpg"),
-                          )),
-                          Positioned(
-                            bottom: 1,
-                            child: Container(
-                                height: 100,
-                                width: 100,
-                                decoration: FlutterLogoDecoration()),
-                          ),
-                        ],
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
