@@ -221,7 +221,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              Positioned(top: 650, height: 800, left: 10, child: AboutMe())
+              Positioned(
+                top: 500,
+                height: 800,
+                child: AboutMe(),
+              ),
             ],
           ),
         ),
