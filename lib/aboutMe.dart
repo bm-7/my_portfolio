@@ -2,9 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-class AboutMe extends StatelessWidget {
+class AboutMe extends StatefulWidget {
   const AboutMe({Key? key});
 
+  @override
+  State<AboutMe> createState() => _AboutMeState();
+}
+
+bool changecolor = false;
+
+class _AboutMeState extends State<AboutMe> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -138,43 +145,77 @@ class AboutMe extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 40,),
-                        Container(
-                          width: 500,
-                          height: 200,
-                          decoration: BoxDecoration(
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        MouseRegion(
+                          onEnter: (_) {
+                            setState(() {
+                              changecolor = true;
+                            });
+                          },
+                          onExit: (_) {
+                            setState(() {
+                              changecolor = false;
+                            });
+                          },
+                          child: Container(
+                            width: 500,
+                            height: 200,
+                            decoration: BoxDecoration(
                               color: Colors.grey.shade800,
-                              borderRadius: BorderRadius.circular(25)),
-                          child: const Column(crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ListTile(
-                                leading: CircleAvatar(
-                                    child: Icon(Icons.email_outlined)),
-                                title: Text(
-                                  "Email Me",
-                                  style: TextStyle(color: Colors.white60),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ListTile(
+                                  leading: CircleAvatar(
+                                    backgroundColor: changecolor
+                                        ? Colors.blue
+                                        : Colors.black38,
+                                    child: Icon(
+                                      Icons.email_outlined,
+                                      color: changecolor
+                                          ? Colors.black54
+                                          : Colors.white,
+                                    ),
+                                  ),
+                                  title: const Text(
+                                    "Email Me",
+                                    style: TextStyle(color: Colors.white60),
+                                  ),
+                                  subtitle: const Text(
+                                    "buntmohith@gmail.com",
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.white),
+                                  ),
                                 ),
-                                subtitle: Text(
-                                  "buntmohith@gmail.com",
-                                  style: TextStyle(
-                                      fontSize: 22, color: Colors.white),
+                                ListTile(
+                                  leading: CircleAvatar(
+                                    child: Icon(
+                                      Icons.call,
+                                      color: changecolor
+                                          ? Colors.black54
+                                          : Colors.white,
+                                    ),
+                                    backgroundColor: changecolor
+                                        ? Colors.blue
+                                        : Colors.black38,
+                                  ),
+                                  title: const Text(
+                                    "Make A Call",
+                                    style: TextStyle(color: Colors.white60),
+                                  ),
+                                  subtitle: const Text(
+                                    "+91 7259282655",
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.white),
+                                  ),
                                 ),
-                              ),
-                              ListTile(
-                                leading: CircleAvatar(
-                                    child: Icon(Icons.email_outlined)),
-                                title: Text(
-                                  "Make A Call",
-                                  style: TextStyle(color: Colors.white60),
-                                ),
-                                subtitle: Text(
-                                  "+91 7259282655",
-                                  style: TextStyle(
-                                      fontSize: 22, color: Colors.white),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -189,7 +230,7 @@ class AboutMe extends StatelessWidget {
                 curve: Curves.linear,
                 child: Container(
                   width: 700,
-                  color: Colors.black,
+                  color: Colors.transparent,
                   child: Stack(
                     children: [
                       Center(

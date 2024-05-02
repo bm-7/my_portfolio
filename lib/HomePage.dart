@@ -4,6 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:my_portfolio/MyExperience.dart';
 import 'aboutMe.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -129,21 +130,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 20, color: Colors.white60),
                             ),
                           ),
-                          SizedBox(height: 50,),
+                          SizedBox(
+                            height: 50,
+                          ),
                           FadeInAnimation(
                             duration: Duration(milliseconds: 3000),
                             curve: Curves.linear,
                             child: InkWell(
-                              onTap: (){},
+                              onTap: () {},
                               child: Container(
                                 width: 140,
                                 height: 35,
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5) ,color: Colors.blue),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: Colors.blue),
                                 child: Center(
                                   child: Text(
                                     "Resume  >",
                                     style: TextStyle(
-                                        fontSize: 18,color: Colors.white70 ),
+                                        fontSize: 18, color: Colors.white70),
                                   ),
                                 ),
                               ),
@@ -191,7 +196,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     decoration: FlutterLogoDecoration(),
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
@@ -209,12 +213,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: MediaQuery.of(context)
                         .size
                         .width, // Make the container full width
-                    color: Colors.black,
+                    color: Colors.transparent,
                     padding: const EdgeInsets.all(20),
                     child: AboutMe(), // Use the AboutMe widget here
                   ),
                 ),
               ),
+              Positioned(
+                top: 1450,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Container(
+                    height: 400,
+                    width: 1200,
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(35)),
+                    child: MyExperience(),
+                  ),
+                ),
+              )
             ],
           ),
         ),
