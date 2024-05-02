@@ -26,15 +26,15 @@ class AboutMe extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Crafting excellence in Flutter development",
                     style: TextStyle(
                       fontSize: 26,
                       color: Color.fromARGB(255, 77, 193, 255),
                     ),
                   ),
-                  SizedBox(height: 40),
-                  Text(
+                  const SizedBox(height: 40),
+                  const Text(
                     "I'm Mohith B M, a mobile app developer, particularly in Flutter. I'm always looking to learn and improve. More than just coding, I believe in never giving up, a trait that fuels my passion for building innovative and user-friendly mobile experiences.",
                     textAlign: TextAlign.start,
                     style: TextStyle(
@@ -43,12 +43,149 @@ class AboutMe extends StatelessWidget {
                       color: Colors.white60,
                     ),
                   ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: 400,
+                    width: 700,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.check,
+                                      color: Colors.blue,
+                                      size: 33,
+                                    ),
+                                    Text(
+                                      " Application Developer",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 24),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40,
+                              ),
+                              Container(
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.check,
+                                      color: Colors.blue,
+                                      size: 33,
+                                    ),
+                                    Text(
+                                      " Development & Design",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 24),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.check,
+                                      color: Colors.blue,
+                                      size: 33,
+                                    ),
+                                    Text(
+                                      " Web Development",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 24),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 80,
+                              ),
+                              Container(
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.check,
+                                      color: Colors.blue,
+                                      size: 33,
+                                    ),
+                                    Text(
+                                      " Backend Development",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 24),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 40,),
+                        Container(
+                          width: 500,
+                          height: 200,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.shade800,
+                              borderRadius: BorderRadius.circular(25)),
+                          child: const Column(crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ListTile(
+                                leading: CircleAvatar(
+                                    child: Icon(Icons.email_outlined)),
+                                title: Text(
+                                  "Email Me",
+                                  style: TextStyle(color: Colors.white60),
+                                ),
+                                subtitle: Text(
+                                  "buntmohith@gmail.com",
+                                  style: TextStyle(
+                                      fontSize: 22, color: Colors.white),
+                                ),
+                              ),
+                              ListTile(
+                                leading: CircleAvatar(
+                                    child: Icon(Icons.email_outlined)),
+                                title: Text(
+                                  "Make A Call",
+                                  style: TextStyle(color: Colors.white60),
+                                ),
+                                subtitle: Text(
+                                  "+91 7259282655",
+                                  style: TextStyle(
+                                      fontSize: 22, color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(width: 20),
             FadeInAnimation(
-                duration: Duration(milliseconds: 3000),
+                duration: const Duration(milliseconds: 3000),
                 curve: Curves.linear,
                 child: Container(
                   width: 700,
@@ -78,8 +215,8 @@ class AboutMe extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -113,8 +250,8 @@ class AboutMe extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
