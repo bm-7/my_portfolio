@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Positioned(
-              top: 600,
+              top: 650,
               left: 0, // Adjust the left position to align properly
               child: AnimationConfiguration.synchronized(
                 child: Container(
