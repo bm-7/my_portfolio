@@ -151,11 +151,13 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               top: 600,
               left: 0, // Adjust the left position to align properly
-              child: Container(
-                width: MediaQuery.of(context).size.width, // Make the container full width
-                color: Colors.amber,
-                padding: const EdgeInsets.all(20),
-                child: AboutMe(), // Use the AboutMe widget here
+              child: AnimationConfiguration.synchronized(
+                child: Container(
+                  width: MediaQuery.of(context).size.width, // Make the container full width
+                  color: Colors.black,
+                  padding: const EdgeInsets.all(20),
+                  child: AboutMe(), // Use the AboutMe widget here
+                ),
               ),
             ),
           ],
