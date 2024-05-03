@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:my_portfolio/MyExperience.dart';
+import 'package:my_portfolio/MySkills.dart';
 import 'aboutMe.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -232,6 +233,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: MyExperience(),
                   ),
                 ),
+              ),
+              Positioned(
+                top: 1900,
+                child: MySkills(),
               )
             ],
           ),
