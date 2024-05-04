@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             animatedTexts: [
                               TypewriterAnimatedText(
                                 "Hello, I'm",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontSize: 32, color: Colors.white54),
                                 speed: const Duration(milliseconds: 200),
                               ),
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               animatedTexts: [
                                 TypewriterAnimatedText(
                                   "Mohith B M",
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 36,
                                       color: Color.fromARGB(255, 77, 193, 255)),
                                   speed: const Duration(milliseconds: 200),
@@ -117,12 +117,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               animatedTexts: [
                                 TypewriterAnimatedText(
                                   "Flutter Developer",
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 36, color: Colors.white),
                                   speed: const Duration(milliseconds: 300),
                                 ),
                               ]),
-                          FadeInAnimation(
+                          const FadeInAnimation(
                             duration: Duration(milliseconds: 300),
                             curve: Curves.linear,
                             child: Text(
@@ -131,11 +131,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 20, color: Colors.white60),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 50,
                           ),
                           FadeInAnimation(
-                            duration: Duration(milliseconds: 3000),
+                            duration: const Duration(milliseconds: 3000),
                             curve: Curves.linear,
                             child: InkWell(
                               onTap: () {},
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color: Colors.blue),
-                                child: Center(
+                                child: const Center(
                                   child: Text(
                                     "Resume  >",
                                     style: TextStyle(
@@ -157,14 +157,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 500,
                       ),
                       Positioned(
                         right: 100,
                         top: 150,
                         child: FadeInAnimation(
-                          duration: Duration(milliseconds: 5000),
+                          duration: const Duration(milliseconds: 5000),
                           curve: Curves.linear,
                           child: Container(
                             height: 450,
@@ -177,13 +177,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Container(
                                     height: 450,
                                     width: 450,
-                                    child: CircleAvatar(
+                                    child: const CircleAvatar(
                                       backgroundColor: Colors.blue,
                                       radius: 120,
                                     ),
                                   ),
                                 ),
-                                Center(
+                                const Center(
                                   child: CircleAvatar(
                                     radius: 210,
                                     backgroundImage: AssetImage("Assets/2.jpg"),
@@ -194,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Container(
                                     height: 100,
                                     width: 100,
-                                    decoration: FlutterLogoDecoration(),
+                                    decoration: const FlutterLogoDecoration(),
                                   ),
                                 ),
                               ],
@@ -216,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         .width, // Make the container full width
                     color: Colors.transparent,
                     padding: const EdgeInsets.all(20),
-                    child: AboutMe(), // Use the AboutMe widget here
+                    child: const AboutMe(), // Use the AboutMe widget here
                   ),
                 ),
               ),
@@ -230,11 +230,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(35)),
-                    child: MyExperience(),
+                    child: const MyExperience(),
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 top: 1900,
                 child: MySkills(),
               )

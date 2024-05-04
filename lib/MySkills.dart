@@ -21,7 +21,7 @@ class _MySkillsState extends State<MySkills> {
       width: 1600,
       color: Colors.black,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -76,49 +76,73 @@ class _MySkillsState extends State<MySkills> {
               ),
             ),
             const SizedBox(width: 20),
-            Container(
-              height: 500,
-              width: 900,
-              color: Colors.amber,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MouseRegion(
-                    onEnter: (_) {
-                      setState(() {
-                        changecolor1 = true;
-                      });
-                    },
-                    onExit: (_) {
-                      setState(() {
-                        changecolor1 = false;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              _buildContainer(changecolor1, true), // Passing true to indicate using FlutterLogo
-                              _buildContainer(changecolor2, false), // Passing false to indicate using Image
-                              _buildContainer(changecolor3, true), // Passing true to indicate using FlutterLogo
-                            ],
-                          ),
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Container(
+                height: 700,
+                width: 900,
+                color: Colors.transparent,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 50),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            _buildContainer(
+                              changecolor1,
+                              true,
+                              'Flutter',
+                              '',
+                                  () {
+                                setState(() {
+                                  changecolor1 = !changecolor1;
+                                });
+                              },
+                            ),
+                            _buildContainer(
+                              changecolor2,
+                              false,
+                              'Firebase',
+                              'Assets/firebase.png',
+                                  () {
+                                setState(() {
+                                  changecolor2 = !changecolor2;
+                                });
+                              },
+                            ),
+                            _buildContainer(
+                              changecolor3,
+                              false,
+                              'Figma',
+                              'Assets/fig.png',
+                                  () {
+                                setState(() {
+                                  changecolor3 = !changecolor3;
+                                });
+                              },
+
+                            ),
+                            _buildContainer(
+                              changecolor4,
+                              false,
+                              'GitHub',
+                              'Assets/github.png',
+                                  () {
+                                setState(() {
+                                  changecolor4 = !changecolor4;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              _buildContainer(changecolor4, false), // Passing false to indicate using Image
-                              _buildContainer(changecolor5, true), // Passing true to indicate using FlutterLogo
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ],
@@ -127,43 +151,42 @@ class _MySkillsState extends State<MySkills> {
     );
   }
 
-  Widget _buildContainer(bool hoverColorChange, bool useFlutterLogo) {
+  Widget _buildContainer(bool hoverColorChange, bool useFlutterLogo,
+      String text, String? imagePath, Function() onTap) {
     return InkWell(
-      onTap: () {
-        // Add your onTap functionality here
-      },
-      child: MouseRegion(
-        onEnter: (_) {
-          setState(() {
-            hoverColorChange = true;
-          });
-        },
-        onExit: (_) {
-          setState(() {
-            hoverColorChange = false;
-          });
-        },
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(color: hoverColorChange ? Colors.blue : Colors.black12),
-            color: hoverColorChange ? Colors.blue : Colors.black87,
+            border: Border.all(
+                color: hoverColorChange ? Colors.blue :Colors.grey.shade100),
+            color: hoverColorChange ? Colors.grey.shade600 : Colors.grey.shade800,
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
                 spreadRadius: 0.3,
-                color: hoverColorChange ? Colors.blue : Colors.black12,
+                color: hoverColorChange ? Colors.blue :Colors.grey.shade400,
               ),
             ],
           ),
-          height: 160,
-          width: 120,
+          height: 200,
+          width: 130,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              useFlutterLogo ? FlutterLogo(size: 80) : Image.asset("Assets/your_image_path_here.jpg"), // Use FlutterLogo or Image based on the flag
+              useFlutterLogo
+                  ? FlutterLogo(size: 80)
+                  : imagePath != null
+                  ? Container(
+                  height: 100,
+                  width: 80,
+                  child: Image.asset(imagePath))
+                  : SizedBox(),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: hoverColorChange ? Colors.blue : Colors.black12),
+                  border: Border.all(
+                      color: hoverColorChange ? Colors.blue : Colors.black12),
                   borderRadius: BorderRadius.circular(35),
                   color: hoverColorChange ? Colors.blue : Colors.black38,
                 ),
@@ -171,8 +194,11 @@ class _MySkillsState extends State<MySkills> {
                 width: 100,
                 child: Center(
                   child: Text(
-                    "Your Text Here",
-                    style: TextStyle(fontSize: 20, color: hoverColorChange ? Colors.black : Colors.white70),
+                    text,
+                    style: TextStyle(
+                        fontSize: 20,
+                        color:
+                        hoverColorChange ? Colors.black : Colors.white70),
                   ),
                 ),
               ),
