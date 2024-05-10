@@ -19,6 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final double _scrollSpeed = 0.5;
   bool _isVisible = true;
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     super.initState();
@@ -42,6 +44,66 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey, // Assign the scaffold key here
+      endDrawer: Drawer(
+        backgroundColor: Colors.black87,
+        elevation: 2,
+        shape: LinearBorder.start(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            padding: EdgeInsets.zero,
+            children: const <Widget>[
+              SizedBox(
+                height: 30,
+              ),
+              ExpansionTile(
+                visualDensity: VisualDensity.standard,
+                title: Text(
+                  'Languages',
+                  style: TextStyle(color: Colors.white),
+                ),
+                childrenPadding: EdgeInsets.all(15),
+                collapsedIconColor: Colors.blue,
+                children: [
+                  Text(
+                    selectionColor: Colors.blue,
+                    style: TextStyle(color: Colors.white),
+                    'English',
+                  ),
+                  Text(
+                    style: TextStyle(color: Colors.white),
+                    'Kannada',
+                  ),
+                  Text(
+                    style: TextStyle(color: Colors.white),
+                    'Hindi',
+                  ),
+                  Text(
+                    style: TextStyle(color: Colors.white),
+                    'Tulu',
+                  ),
+                  Text(
+                    'Tamil',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    'Malayalam',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+              ListTile(
+                title: Text(
+                  'Item 2',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: AnimationConfiguration.synchronized(
@@ -76,6 +138,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Assets/111.gif",
                     fit: BoxFit.fill,
                   ),
+                ),
+              ),
+              Positioned(
+                right: 1,
+                top: 1,
+                child: IconButton(
+                  color: Colors.white,
+                  onPressed: () {
+                    _scaffoldKey.currentState?.openEndDrawer();
+                  },
+                  icon: const Icon(Icons.menu),
                 ),
               ),
               AnimatedPositioned(

@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:email_launcher/email_launcher.dart';
+import 'dart:html' as html;
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class AboutMe extends StatefulWidget {
@@ -171,6 +173,10 @@ class _AboutMeState extends State<AboutMe> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ListTile(
+                                  // onTap: () {
+                                  //   EmailLauncher.launch(
+                                  //       Email(to: ['buntmohith@gmail.com']));
+                                  // },
                                   leading: CircleAvatar(
                                     backgroundColor: changecolor
                                         ? Colors.blue
@@ -186,10 +192,21 @@ class _AboutMeState extends State<AboutMe> {
                                     "Email Me",
                                     style: TextStyle(color: Colors.white60),
                                   ),
-                                  subtitle: const Text(
-                                    "buntmohith@gmail.com",
-                                    style: TextStyle(
-                                        fontSize: 22, color: Colors.white),
+                                  subtitle: InkWell(
+                                    hoverColor: Colors.grey,
+                                    onTap: () {
+
+                                      EmailLauncher.launch(
+
+                                          Email(to: ['buntmohith@gmail.com'],
+                                          body: 'your message',
+                                          subject: 'your subject'));
+                                    },
+                                    child: const Text(
+                                      "buntmohith@gmail.com",
+                                      style: TextStyle(
+                                          fontSize: 22, color: Colors.white),
+                                    ),
                                   ),
                                 ),
                                 ListTile(
