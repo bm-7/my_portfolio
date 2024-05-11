@@ -39,6 +39,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   email_launcher: ^1.1.1
   url_launcher: ^6.2.6
+  http: ^1.2.1
 
 
 

@@ -1,7 +1,5 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:email_launcher/email_launcher.dart';
-import 'dart:html' as html;
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class AboutMe extends StatefulWidget {
@@ -43,13 +41,17 @@ class _AboutMeState extends State<AboutMe> {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const Text(
-                    "I'm Mohith B M, a mobile app developer, particularly in Flutter. I'm always looking to learn and improve. More than just coding, I believe in never giving up, a trait that fuels my passion for building innovative and user-friendly mobile experiences.",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white60,
+                  Container(
+                    width: 600,
+                    height: 200,
+                    child: const Text(
+                      "I'm Mohith B M, a mobile app developer, particularly in Flutter. I'm always looking to learn and improve. More than just coding, I believe in never giving up, a trait that fuels my passion for building innovative and user-friendly mobile experiences.",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white60,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -57,7 +59,7 @@ class _AboutMeState extends State<AboutMe> {
                   ),
                   Container(
                     height: 400,
-                    width: 700,
+                    width: 850,
                     child: Column(
                       children: [
                         Padding(
@@ -162,7 +164,7 @@ class _AboutMeState extends State<AboutMe> {
                             });
                           },
                           child: Container(
-                            width: 500,
+                            width: 600,
                             height: 200,
                             decoration: BoxDecoration(
                               color: Colors.grey.shade800,
@@ -173,10 +175,6 @@ class _AboutMeState extends State<AboutMe> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ListTile(
-                                  // onTap: () {
-                                  //   EmailLauncher.launch(
-                                  //       Email(to: ['buntmohith@gmail.com']));
-                                  // },
                                   leading: CircleAvatar(
                                     backgroundColor: changecolor
                                         ? Colors.blue
@@ -192,21 +190,10 @@ class _AboutMeState extends State<AboutMe> {
                                     "Email Me",
                                     style: TextStyle(color: Colors.white60),
                                   ),
-                                  subtitle: InkWell(
-                                    hoverColor: Colors.grey,
-                                    onTap: () {
-
-                                      EmailLauncher.launch(
-
-                                          Email(to: ['buntmohith@gmail.com'],
-                                          body: 'your message',
-                                          subject: 'your subject'));
-                                    },
-                                    child: const Text(
-                                      "buntmohith@gmail.com",
-                                      style: TextStyle(
-                                          fontSize: 22, color: Colors.white),
-                                    ),
+                                  subtitle: const Text(
+                                    "buntmohith@gmail.com",
+                                    style: TextStyle(
+                                        fontSize: 22, color: Colors.white),
                                   ),
                                 ),
                                 ListTile(
@@ -241,7 +228,7 @@ class _AboutMeState extends State<AboutMe> {
                 ],
               ),
             ),
-            const SizedBox(width: 20),
+            // const SizedBox(width: 20),
             FadeInAnimation(
                 duration: const Duration(milliseconds: 3000),
                 curve: Curves.linear,
@@ -252,7 +239,7 @@ class _AboutMeState extends State<AboutMe> {
                     children: [
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 90),
+                          padding: const EdgeInsets.only(left: 50),
                           child: Container(
                             width: 300,
                             height: 400,

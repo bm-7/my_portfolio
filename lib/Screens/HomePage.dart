@@ -4,9 +4,11 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:my_portfolio/MyExperience.dart';
-import 'package:my_portfolio/MySkills.dart';
-import 'aboutMe.dart';
+import 'package:my_portfolio/Custom/EndInfo.dart';
+import 'package:my_portfolio/Custom/MyExperience.dart';
+import 'package:my_portfolio/Custom/MySkills.dart';
+import 'package:my_portfolio/Custom/myWorks.dart';
+import '../Custom/aboutMe.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -110,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Stack(
             children: [
               Container(
-                height: 3000,
+                height: 4000,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: Stack(
@@ -121,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         duration: const Duration(milliseconds: 100),
                         width: MediaQuery.of(context).size.width * 2,
-                        height: 3000,
+                        height: 4000,
                         child: _buildBackgroundContent(),
                       ),
                     ),
@@ -310,6 +312,15 @@ class _HomeScreenState extends State<HomeScreen> {
               const Positioned(
                 top: 1900,
                 child: MySkills(),
+              ),
+
+              const Positioned(
+                top: 1900,
+                child: MyWorks(),
+              ),
+              const Positioned(
+                top: 3200,
+                child: InfoContainer(),
               )
             ],
           ),
