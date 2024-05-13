@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:my_portfolio/Custom/EndInfo.dart';
 import 'package:my_portfolio/Custom/MyExperience.dart';
 import 'package:my_portfolio/Custom/MySkills.dart';
 import 'package:my_portfolio/Custom/myWorks.dart';
+import 'package:my_portfolio/CustomizedWidgets/Pdf_Viewer.dart';
 import '../Custom/aboutMe.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -213,7 +213,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             duration: const Duration(milliseconds: 3000),
                             curve: Curves.linear,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PdfViews(),
+                                    ));
+                              },
                               child: Container(
                                 width: 140,
                                 height: 35,
@@ -313,7 +319,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 top: 1900,
                 child: MySkills(),
               ),
-
               const Positioned(
                 top: 1900,
                 child: MyWorks(),

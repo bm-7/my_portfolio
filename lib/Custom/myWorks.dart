@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/Custom/customisedimagecon.dart';
-import 'package:my_portfolio/Custom/hover.dart';
+import 'package:my_portfolio/CustomizedWidgets/customisedimagecon.dart';
+import 'package:my_portfolio/CustomizedWidgets/hover.dart';
 
 class MyWorks extends StatefulWidget {
   const MyWorks({Key? key}) : super(key: key);
