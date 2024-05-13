@@ -1,11 +1,14 @@
 import 'dart:async';
+import 'dart:html';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:my_portfolio/Custom/Custom_Drawer.dart';
 import 'package:my_portfolio/Custom/EndInfo.dart';
 import 'package:my_portfolio/Custom/MyExperience.dart';
 import 'package:my_portfolio/Custom/MySkills.dart';
+import 'package:my_portfolio/Custom/SMedia_Links.dart';
 import 'package:my_portfolio/Custom/myWorks.dart';
 import 'package:my_portfolio/CustomizedWidgets/Pdf_Viewer.dart';
 import '../Custom/aboutMe.dart';
@@ -47,72 +50,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey, // Assign the scaffold key here
-      endDrawer: Drawer(
-        backgroundColor: Colors.black87,
-        elevation: 2,
-        shape: LinearBorder.start(),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            padding: EdgeInsets.zero,
-            children: const <Widget>[
-              SizedBox(
-                height: 30,
-              ),
-              ExpansionTile(
-                visualDensity: VisualDensity.standard,
-                title: Text(
-                  'Languages',
-                  style: TextStyle(color: Colors.white),
-                ),
-                childrenPadding: EdgeInsets.all(15),
-                collapsedIconColor: Colors.blue,
-                children: [
-                  Text(
-                    selectionColor: Colors.blue,
-                    style: TextStyle(color: Colors.white),
-                    'English',
-                  ),
-                  Text(
-                    style: TextStyle(color: Colors.white),
-                    'Kannada',
-                  ),
-                  Text(
-                    style: TextStyle(color: Colors.white),
-                    'Hindi',
-                  ),
-                  Text(
-                    style: TextStyle(color: Colors.white),
-                    'Tulu',
-                  ),
-                  Text(
-                    'Tamil',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Text(
-                    'Malayalam',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-              ListTile(
-                title: Text(
-                  'Item 2',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      endDrawer: CustomDrawer(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: AnimationConfiguration.synchronized(
           child: Stack(
             children: [
               Container(
-                height: 4000,
+                height: 3900,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: Stack(
@@ -123,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         duration: const Duration(milliseconds: 100),
                         width: MediaQuery.of(context).size.width * 2,
-                        height: 4000,
+                        height: 3900,
                         child: _buildBackgroundContent(),
                       ),
                     ),
@@ -326,7 +271,11 @@ class _HomeScreenState extends State<HomeScreen> {
               const Positioned(
                 top: 3200,
                 child: InfoContainer(),
-              )
+              ),
+              Positioned(
+                top: 3850,
+                child: SocialMedia()
+              ),
             ],
           ),
         ),

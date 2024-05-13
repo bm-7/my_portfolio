@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/CustomizedWidgets/customisedimagecon.dart';
 import 'package:my_portfolio/CustomizedWidgets/hover.dart';
 
@@ -73,38 +73,6 @@ class _MyWorksState extends State<MyWorks> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Padding(
-                            //   padding: const EdgeInsets.all(20.0),
-                            //   child: Container(
-                            //     height: 400,
-                            //     width: 450,
-                            //     decoration: BoxDecoration(
-                            //       border: Border.all(
-                            //         color: Colors.grey, // Border color
-                            //       ),
-                            //       borderRadius: BorderRadius.circular(15),
-                            //       boxShadow: const [
-                            //         BoxShadow(blurRadius: 1,spreadRadius: 4,offset: Offset(2, 1),color: Colors.blue)
-                            //       ]
-                            //     ),
-                            //     child: Container(
-                            //       decoration: BoxDecoration(
-                            //         border: Border.all(
-                            //           color: Colors.grey.shade100, // Same as container border color
-                            //         ),
-                            //         borderRadius: BorderRadius.circular(15),
-                            //       ),
-                            //       child: ClipRRect(
-                            //         borderRadius: BorderRadius.circular(15),
-                            //         child: Image.asset(
-                            //           "Assets/Task_App.gif",
-                            //           fit: BoxFit.fill
-                            //           ,
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: CustomImageContainer(
@@ -116,10 +84,6 @@ class _MyWorksState extends State<MyWorks> {
                               child: CustomImageContainer(
                                   imagePath: 'Assets/Task_App (1).gif'),
                             ),
-                            // Padding(
-                            //   padding: const EdgeInsets.all(20.0),
-                            //   child: const CustomImageContainer( imagePath: 'Assets/Task_App (1).gif'),
-                            // )
                           ],
                         ),
                         const Row(
@@ -141,7 +105,9 @@ class _MyWorksState extends State<MyWorks> {
                         ),
                         SizedBox(height: 30,),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            _launchUrl('https://github.com/bm-7');
+                          },
                           child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.blue,
@@ -168,4 +134,8 @@ class _MyWorksState extends State<MyWorks> {
       ),
     );
   }
-}
+  Future<void> _launchUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      throw Exception('Could not launch $url');
+    }
+  }}

@@ -60,6 +60,7 @@ class _InfoContainerState extends State<InfoContainer> {
                   ],
                 ),
               ),
+
             ],
           ),
         )
