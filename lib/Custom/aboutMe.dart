@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutMe extends StatefulWidget {
@@ -134,12 +135,109 @@ class _AboutMeState extends State<AboutMe> {
                 ],
               ),
             ),
+            FadeInAnimation(
+                duration: const Duration(milliseconds: 3000),
+                curve: Curves.linear,
+                child: Container(
+                  width: 700,
+                  color: Colors.transparent,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 50),
+                          child: Container(
+                            width: 300,
+                            height: 400,
+                            color: Colors.amber,
+                            child: const Image(
+                              fit: BoxFit.cover,
+                              image: AssetImage("Assets/3.jpg"),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 200,
+                        left: 50,
+                        child: Container(
+                          width: 260,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.developer_mode_outlined,
+                                  color: Colors.blue,
+                                ),
+                                Text(
+                                  "Application Developer",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.call_made_outlined,
+                                  color: Colors.black,
+                                  size: 30,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 300,
+                        left: 30,
+                        child: Container(
+                          width: 230,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.developer_mode_outlined,
+                                  color: Colors.blue,
+                                ),
+                                Text(
+                                  "Mohith B M",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.call_made_outlined,
+                                  color: Colors.black,
+                                  size: 30,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ))
           ],
         ),
       ],
     );
   }
 }
+
+
 
 void launchGmail() async {
   final Uri _emailLaunchUri = Uri(

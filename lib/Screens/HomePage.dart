@@ -274,6 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Positioned(
                 top: 3850,
+                right:1,
                 child: SocialMedia()
               ),
             ],

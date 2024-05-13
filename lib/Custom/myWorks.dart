@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/CustomizedWidgets/customisedimagecon.dart';
-import 'package:my_portfolio/CustomizedWidgets/hover.dart';
+// import 'package:my_portfolio/CustomizedWidgets/hover.dart';
 
 class MyWorks extends StatefulWidget {
   const MyWorks({Key? key}) : super(key: key);
@@ -82,7 +82,7 @@ class _MyWorksState extends State<MyWorks> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: CustomImageContainer(
-                                  imagePath: 'Assets/Task_App (1).gif'),
+                                  imagePath: 'Assets/Meals_app.png'),
                             ),
                           ],
                         ),
@@ -93,7 +93,7 @@ class _MyWorksState extends State<MyWorks> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: CustomImageContainer(
-                                  imagePath: 'Assets/Task_App.gif'),
+                                  imagePath: 'Assets/Meals_app.png'),
                             ),
                             SizedBox(width: 50),
                             Padding(

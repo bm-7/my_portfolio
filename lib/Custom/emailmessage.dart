@@ -71,7 +71,7 @@ class _EmailMeState extends State<EmailMe> {
                   prefixIcon: Icon(Icons.person_outline),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  hintText: "eg.Vivek K M",
+                  hintText: "eg.Gagan K M",
                   hintStyle:
                       const TextStyle(color: Colors.white, fontSize: 16)),
               controller: nameController,

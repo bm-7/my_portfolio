@@ -21,7 +21,7 @@ class _SocialMediaState extends State<SocialMedia> {
       decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: [const SizedBox(width: 20),
           GestureDetector(
             onTap: () {
               _launchUrl('https://www.linkedin.com/in/bm72');
@@ -48,7 +48,7 @@ class _SocialMediaState extends State<SocialMedia> {
               _launchUrl('https://www.instagram.com/_mohith_bunt_?igsh=Mm0zZ2R5amQwZTJu');
             },
             child: const Text("Instagram",style: TextStyle(color: Colors.white70),),
-          ),
+          ),const SizedBox(width: 20),
         ],
       ),
     );
