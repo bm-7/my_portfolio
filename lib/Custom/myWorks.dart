@@ -1,4 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/CustomizedWidgets/customisedimagecon.dart';
 // import 'package:my_portfolio/CustomizedWidgets/hover.dart';
@@ -9,6 +12,11 @@ class MyWorks extends StatefulWidget {
   @override
   State<MyWorks> createState() => _MyWorksState();
 }
+
+bool changecolor = false;
+bool changecolor1 = false;
+bool changecolor2 = false;
+
 
 class _MyWorksState extends State<MyWorks> {
   @override
@@ -68,42 +76,272 @@ class _MyWorksState extends State<MyWorks> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.all(20.0),
-                              child: CustomImageContainer(
-                                  imagePath: 'Assets/Task_App.gif'),
+                            const SizedBox(
+                              width: 50,
                             ),
-                            SizedBox(width: 50),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.all(20.0),
                               child: CustomImageContainer(
-                                  imagePath: 'Assets/Meals_app.png'),
+                                  imagePath: 'Assets/task1_app.gif'),
+                            ),
+                            const SizedBox(
+                              width: 70,
+                            ),
+                            Column(
+                              children: [
+                                const Text(
+                                  "Task_App",
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 26),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "Task App is a user-friendly mobile application developed using Sqflite,"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "a local database solution. With this app, users can conveniently keep"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "track of their daily tasks, events, and important reminders. Whether"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "it's jotting down notes for upcoming events, setting reminders for"),
+                                const Text(
+                                  "tasks, or simply organizing daily to-dos, Task App provides a seamless",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                const Text(
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                  "and intuitive experience. ",
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                MouseRegion(
+                                  onEnter: (_) {
+                                    setState(() {
+                                      changecolor = true;
+                                    });
+                                  },
+                                  onExit: (_) {
+                                    setState(() {
+                                      changecolor = false;
+                                    });
+                                  },
+                                  cursor: SystemMouseCursors.click,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _launchUrl(
+                                          'https://github.com/bm-7/task_app');
+                                    },
+                                    child: CircleAvatar(
+                                      backgroundColor: changecolor
+                                          ? Colors.blue
+                                          : Colors.black38,
+                                      child: Icon(
+                                        Icons.call_made_outlined,
+                                        color: changecolor
+                                            ? Colors.black54
+                                            : Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.all(20.0),
-                              child: CustomImageContainer(
-                                  imagePath: 'Assets/Meals_app.png'),
+                            Column(
+                              children: [
+                                const Text(
+                                  "Meal_app",
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 26),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "Task App is a user-friendly mobile application developed using Sqflite,"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "a local database solution. With this app, users can conveniently keep"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "track of their daily tasks, events, and important reminders. Whether"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "it's jotting down notes for upcoming events, setting reminders for"),
+                                const Text(
+                                  "tasks, or simply organizing daily to-dos, Task App provides a seamless",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                const Text(
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                  "and intuitive experience. ",
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                MouseRegion(
+                                  onEnter: (_) {
+                                    setState(() {
+                                      changecolor1 = true;
+                                    });
+                                  },
+                                  onExit: (_) {
+                                    setState(() {
+                                      changecolor1 = false;
+                                    });
+                                  },
+                                  cursor: SystemMouseCursors.click,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _launchUrl(
+                                          'https://github.com/bm-7/task_app');
+                                    },
+                                    child: CircleAvatar(
+                                      backgroundColor: changecolor1
+                                          ? Colors.blue
+                                          : Colors.black38,
+                                      child: Icon(
+                                        Icons.call_made_outlined,
+                                        color: changecolor1
+                                            ? Colors.black54
+                                            : Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            SizedBox(width: 50),
-                            Padding(
+                            const SizedBox(
+                              width: 70,
+                            ),
+                            const Padding(
                               padding: EdgeInsets.all(20.0),
                               child: CustomImageContainer(
-                                  imagePath: 'Assets/Task_App (1).gif'),
+                                  imagePath: 'Assets/Meals_app.gif'),
                             ),
                           ],
                         ),
-                        SizedBox(height: 30,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              width: 50,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: CustomImageContainer(
+                                  imagePath: 'Assets/sate.gif'),
+                            ),
+                            const SizedBox(
+                              width: 70,
+                            ),
+                            Column(
+                              children: [
+                                const Text(
+                                  "Satellite Information App",
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 26),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "Task App is a user-friendly mobile application developed using Sqflite,"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "a local database solution. With this app, users can conveniently keep"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "track of their daily tasks, events, and important reminders. Whether"),
+                                const Text(
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    "it's jotting down notes for upcoming events, setting reminders for"),
+                                const Text(
+                                  "tasks, or simply organizing daily to-dos, Task App provides a seamless",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                const Text(
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                  "and intuitive experience. ",
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                MouseRegion(
+                                  onEnter: (_) {
+                                    setState(() {
+                                      changecolor2 = true;
+                                    });
+                                  },
+                                  onExit: (_) {
+                                    setState(() {
+                                      changecolor2 = false;
+                                    });
+                                  },
+                                  cursor: SystemMouseCursors.click,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _launchUrl(
+                                          'https://github.com/bm-7/task_app');
+                                    },
+                                    child: CircleAvatar(
+                                      backgroundColor: changecolor2
+                                          ? Colors.blue
+                                          : Colors.black38,
+                                      child: Icon(
+                                        Icons.call_made_outlined,
+                                        color: changecolor
+                                            ? Colors.black54
+                                            : Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
                         GestureDetector(
                           onTap: () {
                             _launchUrl('https://github.com/bm-7');
@@ -134,8 +372,10 @@ class _MyWorksState extends State<MyWorks> {
       ),
     );
   }
+
   Future<void> _launchUrl(String url) async {
     if (!await launchUrl(Uri.parse(url))) {
       throw Exception('Could not launch $url');
     }
-  }}
+  }
+}

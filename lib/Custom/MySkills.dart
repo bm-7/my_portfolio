@@ -17,7 +17,7 @@ class _MySkillsState extends State<MySkills> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 400,
       width: 1600,
       color: Colors.black,
       child: Padding(

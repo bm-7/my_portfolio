@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Stack(
             children: [
               Container(
-                height: 3900,
+                height: 4680,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: Stack(
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         duration: const Duration(milliseconds: 100),
                         width: MediaQuery.of(context).size.width * 2,
-                        height: 3900,
+                        height: 4680,
                         child: _buildBackgroundContent(),
                       ),
                     ),
@@ -260,20 +260,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+
               const Positioned(
-                top: 1900,
+                top: 1850,
                 child: MySkills(),
               ),
               const Positioned(
-                top: 1900,
+                top: 2200,
                 child: MyWorks(),
               ),
               const Positioned(
-                top: 3200,
+                top: 3950,
                 child: InfoContainer(),
               ),
               Positioned(
-                top: 3850,
+                top: 4630,
                 right:1,
                 child: SocialMedia()
               ),

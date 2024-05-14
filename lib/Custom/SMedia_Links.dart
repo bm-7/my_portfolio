@@ -28,27 +28,27 @@ class _SocialMediaState extends State<SocialMedia> {
             },
             child: const Text("LinkedIn",style: TextStyle(color: Colors.white70),),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 40),
           GestureDetector(
             onTap: () {
               _launchUrl('https://github.com/bm-7');
             },
             child: const Text("GitHub",style: TextStyle(color: Colors.white70),),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 40),
           GestureDetector(
             onTap: () {
               _launchUrl('https://twitter.com/MohithBunt');
             },
             child: const Text("Twitter",style: TextStyle(color: Colors.white70),),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 40),
           GestureDetector(
             onTap: () {
               _launchUrl('https://www.instagram.com/_mohith_bunt_?igsh=Mm0zZ2R5amQwZTJu');
             },
             child: const Text("Instagram",style: TextStyle(color: Colors.white70),),
-          ),const SizedBox(width: 20),
+          ),const SizedBox(width: 40),
         ],
       ),
     );

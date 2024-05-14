@@ -41,6 +41,7 @@ dependencies:
   url_launcher: ^6.2.6
   http: ^1.2.1
   pdfx: ^2.6.0
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -73,11 +74,15 @@ flutter:
     - Assets/fig.png
     - Assets/firebase.png
     - Assets/nodejs.png
+    - Assets/getx.png
     - Assets/Sqflite.png
+    - Assets/provider.jpg
     - Assets/github.png
-    - Assets/Task_App.gif
-    - Assets/Meals_app.png
-    - Assets/Task_App (1).gif
+    - Assets/Message.gif
+    - Assets/api.png
+    - Assets/sate.gif
+    - Assets/Meals_app.gif
+    - Assets/task1_app.gif
     - Assets/Mohith_Resume.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
