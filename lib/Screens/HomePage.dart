@@ -287,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               width: 150,
-              height: 3000,
+              height: MediaQuery.sizeOf(context).height*1,
               decoration: const BoxDecoration(
                 color: Colors.black,
               ),
