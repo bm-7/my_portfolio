@@ -13,6 +13,14 @@ Future<void> _launchUrl(String url) async {
   }
 }
 
+final ScrollController _scrollController = ScrollController();
+
+void Scroll() {
+  _scrollController.addListener(() {
+    _scrollController.position.minScrollExtent;
+  });
+}
+
 class _SocialMediaState extends State<SocialMedia> {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,27 @@ class _SocialMediaState extends State<SocialMedia> {
       decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [const SizedBox(width: 20),
+        children: [
+          const SizedBox(width: 20),
+          InkWell(
+            onTap: () {
+              // Scroll to the desired position
+              _scrollController.animateTo(
+                _scrollController.position.minScrollExtent,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: const Text(
+              "   __^__  ",
+              style: TextStyle(color: Colors.white70),
+            ),
+          ),
+
+
+
+
+          const SizedBox(width: 20),
           GestureDetector(
             onTap: () {
               _launchUrl('https://www.linkedin.com/in/bm72');

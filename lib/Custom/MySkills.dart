@@ -19,7 +19,7 @@ class _MySkillsState extends State<MySkills> {
     return Container(
       height: 400,
       width: 1600,
-      color: Colors.black,
+      color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Row(

@@ -22,7 +22,7 @@ class _MyWorksState extends State<MyWorks> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Row(

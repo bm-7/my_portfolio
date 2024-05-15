@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:html';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -45,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -260,7 +259,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-
               const Positioned(
                 top: 1850,
                 child: MySkills(),
@@ -273,11 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 top: 3950,
                 child: InfoContainer(),
               ),
-              Positioned(
-                top: 4630,
-                right:1,
-                child: SocialMedia()
-              ),
+              Positioned(top: 4630, right: 1, child: SocialMedia()),
             ],
           ),
         ),

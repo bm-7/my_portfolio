@@ -14,7 +14,7 @@ class _InfoContainerState extends State<InfoContainer> {
   @override
   Widget build(BuildContext context) {
     return  Container(
-        color: Colors.black,
+        color: Colors.transparent,
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(
@@ -52,7 +52,7 @@ class _InfoContainerState extends State<InfoContainer> {
                       child: EmailMe(),
                     ),
                     SizedBox(
-                      width: 40,
+                      width: 70,
                     ),
                     Container(
                       child: Address(),
