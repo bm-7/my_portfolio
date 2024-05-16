@@ -17,6 +17,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Drawer(
       backgroundColor: Colors.black87,
       elevation: 2,
+
+      surfaceTintColor: Colors.blue,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.horizontal(right: Radius.circular(20)),
       ),
@@ -26,10 +28,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
           physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.zero,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            ExpansionTile(
+            const ExpansionTile(
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
 
               visualDensity: VisualDensity.standard,
@@ -39,7 +41,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               childrenPadding: EdgeInsets.all(15),
               collapsedIconColor: Colors.blue,
-              children: const [
+              children: [
                 Text(
                   'English',
                   style: TextStyle(color: Colors.white),
@@ -68,11 +70,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
             ExpansionTile(
               visualDensity: VisualDensity.standard,
-              title: Text(
+              title: const Text(
                 'Certificate',
                 style: TextStyle(color: Colors.white),
               ),
-              childrenPadding: EdgeInsets.all(15),
+              childrenPadding: const EdgeInsets.all(15),
               collapsedIconColor: Colors.blue,
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -81,7 +83,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   'https://www.udemy.com/certificate/UC-866981d1-1cf9-4978-9b90-2a8359aac506/',
                   0,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 buildCertificateItem(
@@ -89,7 +91,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   'https://drive.google.com/file/d/1-c6IVrnGEPEeGzi8hwmswSW_p2-VFOGK/view?usp=drivesdk',
                   1,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 buildCertificateItem(
@@ -97,7 +99,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   'https://drive.google.com/file/d/1-WLGgm9NoRU-kER6cMwJVTgpZ4C4Ui4H/view?usp=drivesdk',
                   2,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 buildCertificateItem(

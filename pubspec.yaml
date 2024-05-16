@@ -41,6 +41,7 @@ dependencies:
   url_launcher: ^6.2.6
   http: ^1.2.1
   pdfx: ^2.6.0
+  transparent_image:
   auto_size_text: ^3.0.0
   firebase_core:
 
@@ -71,6 +72,8 @@ flutter:
     - Assets/111.gif
     - Assets/1.jpg
     - Assets/2.jpg
+    - Assets/mine.png
+    - Assets/bg1.gif
     - Assets/3.jpg
     - Assets/fig.png
     - Assets/firebase.png

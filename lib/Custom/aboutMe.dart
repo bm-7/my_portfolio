@@ -108,13 +108,13 @@ class _AboutMeState extends State<AboutMe> {
                                 ),
                                 ListTile(
                                   leading: CircleAvatar(
+                                    backgroundColor:
+                                    changecolor ? Colors.blue : Colors.black38,
                                     child: Icon(
                                       Icons.call,
                                       color:
                                       changecolor ? Colors.black54 : Colors.white,
                                     ),
-                                    backgroundColor:
-                                    changecolor ? Colors.blue : Colors.black38,
                                   ),
                                   title: const Text(
                                     "Make A Call",
