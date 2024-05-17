@@ -28,7 +28,7 @@ class _SocialMediaState extends State<SocialMedia> {
       height: 30,
       decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           const SizedBox(width: 20),
           InkWell(

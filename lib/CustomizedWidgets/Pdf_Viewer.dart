@@ -92,7 +92,7 @@ class _PdfViewsState extends State<PdfViews> {
     // TODO: implement initState
     super.initState();
     pdfcontrollerpinch = PdfControllerPinch(
-        document: PdfDocument.openAsset("Assets/Mohith_Resume.pdf"));
+        document: PdfDocument.openAsset("Assets/MyREsume.pdf"));
   }
 
   @override

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'Responsive.dart';
+
 class AboutMe extends StatefulWidget {
   const AboutMe({Key? key});
 
@@ -12,143 +14,145 @@ class AboutMe extends StatefulWidget {
 
 class _AboutMeState extends State<AboutMe> {
   bool changecolor = false; // Moved inside the widget's state
-
+  final bool _isVisible = true;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+         Text(
           "About Me :",
           style: TextStyle(
-            fontSize: 24,
+            fontSize: Responsive.isLaptopScreen(context) ? 24 : 12,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
-        const SizedBox(height: 25),
+         SizedBox(height: Responsive.isLaptopScreen(context) ? 25 : 15),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Crafting excellence in Flutter development",
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 Text(
+                  "Crafting excellence in Flutter development",
+                  style: TextStyle(
+                    fontSize: Responsive.isLaptopScreen(context) ? 26 : 12,
+                    color: Color.fromARGB(255, 77, 193, 255),
+                  ),
+                ),
+                const SizedBox(height: 40),
+                Container(
+                  width: Responsive.isLaptopScreen(context) ? 700 :200,
+                  height: 220,
+                  child:  Text(
+                    "I'm Mohith B M, a mobile app developer, particularly in Flutter. I'm always looking to learn and improve. More than just coding, I believe in never giving up, a trait that fuels my passion for building innovative and user-friendly mobile experiences.",
+                    textAlign: TextAlign.start,
                     style: TextStyle(
-                      fontSize: 26,
-                      color: Color.fromARGB(255, 77, 193, 255),
+                      fontSize: Responsive.isLaptopScreen(context) ? 20 : 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white54,
                     ),
                   ),
-                  const SizedBox(height: 40),
-                  Container(
-                    width: 600,
-                    height: 200,
-                    child: const Text(
-                      "I'm Mohith B M, a mobile app developer, particularly in Flutter. I'm always looking to learn and improve. More than just coding, I believe in never giving up, a trait that fuels my passion for building innovative and user-friendly mobile experiences.",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white60,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    height: 400,
-                    width: 850,
-                    child: Column(
-                      children: [
-                        // Rest of your content
-                        MouseRegion(
-                          onEnter: (_) {
-                            setState(() {
-                              changecolor = true;
-                            });
-                          },
-                          onExit: (_) {
-                            setState(() {
-                              changecolor = false;
-                            });
-                          },
-                          child: Container(
-                            width: 600,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade800,
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                ListTile(
-                                  onTap: launchGmail,
-                                  leading: CircleAvatar(
-                                    backgroundColor:
-                                    changecolor ? Colors.blue : Colors.black38,
-                                    child: Icon(
-                                      Icons.email_outlined,
-                                      color:
-                                      changecolor ? Colors.black54 : Colors.white,
-                                    ),
-                                  ),
-                                  title: const Text(
-                                    "Email Me",
-                                    style: TextStyle(color: Colors.white60),
-                                  ),
-                                  subtitle: const Text(
-                                    "buntmohith@gmail.com",
-                                    style: TextStyle(fontSize: 22, color: Colors.white),
-                                  ),
-                                ),
-                                ListTile(
-                                  leading: CircleAvatar(
-                                    backgroundColor:
-                                    changecolor ? Colors.blue : Colors.black38,
-                                    child: Icon(
-                                      Icons.call,
-                                      color:
-                                      changecolor ? Colors.black54 : Colors.white,
-                                    ),
-                                  ),
-                                  title: const Text(
-                                    "Make A Call",
-                                    style: TextStyle(color: Colors.white60),
-                                  ),
-                                  subtitle: const Text(
-                                    "+91 7259282655",
-                                    style: TextStyle(fontSize: 22, color: Colors.white),
-                                  ),
-                                ),
-                              ],
-                            ),
+                ),
+                 SizedBox(
+                  height: Responsive.isLaptopScreen(context) ? 30 : 10,
+                ),
+                Container(
+                  height: Responsive.isLaptopScreen(context) ? 400 : 150,
+                  width: Responsive.isLaptopScreen(context) ? 800 : 200,
+                  child: Column(
+                    children: [
+                      // Rest of your content
+                      MouseRegion(
+                        onEnter: (_) {
+                          setState(() {
+                            changecolor = true;
+                          });
+                        },
+                        onExit: (_) {
+                          setState(() {
+                            changecolor = false;
+                          });
+                        },
+                        child: Container(
+                          width: Responsive.isLaptopScreen(context) ? 600 : 300,
+                          height: Responsive.isLaptopScreen(context) ? 200 : 130,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 25 : 10),
                           ),
-                        )
-                      ],
-                    ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ListTile(
+                                onTap: launchGmail,
+                                leading: CircleAvatar(
+                                  radius: Responsive.isLaptopScreen(context) ? 22 : 14,
+                                  backgroundColor:
+                                  changecolor ? Colors.blue : Colors.black38,
+                                  child: Icon(
+                                    Icons.email_outlined,
+                                    size: Responsive.isLaptopScreen(context) ? 20 : 12,
+                                    color:
+                                    changecolor ? Colors.black54 : Colors.white,
+                                  ),
+                                ),
+                                title:  Text(
+                                  "Email Me",
+                                  style: TextStyle(color: Colors.white60,fontSize: Responsive.isLaptopScreen(context) ? 22 : 10,),
+                                ),
+                                subtitle:  Text(
+                                  "buntmohith@gmail.com",
+                                  style: TextStyle(fontSize: Responsive.isLaptopScreen(context) ? 22 : 10, color: Colors.white),
+                                ),
+                              ),
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius:  Responsive.isLaptopScreen(context) ? 22 : 14,
+                                  backgroundColor:
+                                  changecolor ? Colors.blue : Colors.black38,
+                                  child: Icon(
+                                    Icons.call,
+                                    size: Responsive.isLaptopScreen(context) ? 20 : 12,
+                                    color:
+                                    changecolor ? Colors.black54 : Colors.white,
+                                  ),
+                                ),
+                                title:  Text(
+                                  "Make A Call",
+                                  style: TextStyle(color: Colors.white60,fontSize: Responsive.isLaptopScreen(context) ? 22 : 12,),
+                                ),
+                                subtitle:  Text(
+                                  "+91 7259282655",
+                                  style: TextStyle(fontSize: Responsive.isLaptopScreen(context) ? 22 : 12, color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             FadeInAnimation(
                 duration: const Duration(milliseconds: 3000),
                 curve: Curves.linear,
                 child: Container(
-                  width: 700,
+                  width:  Responsive.isLaptopScreen(context) ? 600 : 250,
                   color: Colors.transparent,
                   child: Stack(
                     children: [
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 50),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Container(
-                            width: 300,
-                            height: 400,
+                            width: Responsive.isLaptopScreen(context) ? 300 : 150,
+                            height: Responsive.isLaptopScreen(context) ? 400 : 250,
                             color: Colors.amber,
                             child: const Image(
                               fit: BoxFit.cover,
@@ -158,16 +162,16 @@ class _AboutMeState extends State<AboutMe> {
                         ),
                       ),
                       Positioned(
-                        top: 200,
-                        left: 50,
+                        top: Responsive.isLaptopScreen(context) ? 200 : 140,
+                        left: 0,
                         child: Container(
-                          width: 260,
+                          width: Responsive.isLaptopScreen(context) ? 260 : 160,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 20 : 10),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
+                          child:  Padding(
+                            padding: EdgeInsets.all(Responsive.isLaptopScreen(context) ? 8 : 3),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -178,14 +182,14 @@ class _AboutMeState extends State<AboutMe> {
                                 Text(
                                   "Application Developer",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: Responsive.isLaptopScreen(context) ? 16 : 8,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Icon(
                                   Icons.call_made_outlined,
                                   color: Colors.black,
-                                  size: 30,
+                                  size: Responsive.isLaptopScreen(context) ? 30 : 15,
                                 ),
                               ],
                             ),
@@ -193,16 +197,16 @@ class _AboutMeState extends State<AboutMe> {
                         ),
                       ),
                       Positioned(
-                        top: 300,
-                        left: 30,
+                        top: Responsive.isLaptopScreen(context) ? 300 : 190,
+                        left: Responsive.isLaptopScreen(context) ? 40 : 20,
                         child: Container(
-                          width: 230,
+                          width: Responsive.isLaptopScreen(context) ? 230 : 160,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 20 : 10),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
+                          child:  Padding(
+                            padding: EdgeInsets.all(Responsive.isLaptopScreen(context) ? 8 : 3),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -213,14 +217,14 @@ class _AboutMeState extends State<AboutMe> {
                                 Text(
                                   "Mohith B M",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: Responsive.isLaptopScreen(context) ? 16 : 8,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Icon(
                                   Icons.call_made_outlined,
                                   color: Colors.black,
-                                  size: 30,
+                                  size: Responsive.isLaptopScreen(context) ? 30 : 15,
                                 ),
                               ],
                             ),

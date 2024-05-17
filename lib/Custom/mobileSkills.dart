@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MySkills extends StatefulWidget {
-  const MySkills({Key? key}) : super(key: key);
+import 'Responsive.dart';
+
+class MyMobileSkills extends StatefulWidget {
+  const MyMobileSkills({Key? key}) : super(key: key);
 
   @override
-  State<MySkills> createState() => _MySkillsState();
+  State<MyMobileSkills> createState() => _MyMobileSkillsState();
 }
 
-class _MySkillsState extends State<MySkills> {
+class _MyMobileSkillsState extends State<MyMobileSkills> {
   bool changecolor1 = false;
   bool changecolor2 = false;
   bool changecolor3 = false;
@@ -16,70 +18,68 @@ class _MySkillsState extends State<MySkills> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 400,
-      width: 1600,
-      color: Colors.transparent,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              width: 600,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    "My Skills",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white60,
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Container(
+        height: 700,
+        width: 640,
+        color: Colors.transparent,
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal:  5),
+          child: Column(
+            children: [
+              Container(
+                width: 600,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  RichText(
-                    text: const TextSpan(children: [
-                      TextSpan(
-                        text: "Let's Explore My",
-                        style: TextStyle(color: Colors.white, fontSize: 34),
-                      ),
-                      TextSpan(
-                        text: " Popular Skills",
-                        style: TextStyle(color: Colors.blue, fontSize: 34),
-                      )
-                    ]),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      "My experience about building impactful websites and apps\n"
-                          "with expertise in frontend frameworks and backend languages",
+                    const Text(
+                      "My Skills",
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: BorderSide.strokeAlignCenter,
-                        fontSize: 18,
+                        fontSize: 14,
                         color: Colors.white60,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    RichText(
+                      text: const TextSpan(children: [
+                        TextSpan(
+                          text: "Let's Explore My",
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                        TextSpan(
+                          text: " Popular Skills",
+                          style: TextStyle(color: Colors.blue, fontSize: 14),
+                        )
+                      ]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Text(
+                        "My experience about building impactful websites and apps\n"
+                            "with expertise in frontend frameworks and backend languages",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: BorderSide.strokeAlignCenter,
+                          fontSize: 18,
+                          color: Colors.white60,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
 
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: Container(
-                height: 700,
+              Container(
                 width: 900,
                 color: Colors.transparent,
                 child: Padding(
@@ -144,8 +144,8 @@ class _MySkillsState extends State<MySkills> {
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

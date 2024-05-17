@@ -9,7 +9,7 @@ import 'package:my_portfolio/Custom/MySkills.dart';
 import 'package:my_portfolio/Custom/SMedia_Links.dart';
 import 'package:my_portfolio/Custom/myWorks.dart';
 import 'package:my_portfolio/CustomizedWidgets/Pdf_Viewer.dart';
-import 'package:transparent_image/transparent_image.dart';
+import '../Custom/Responsive.dart';
 import '../Custom/aboutMe.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: SizedBox(
-            height: 4700, // Limiting the height of the container
+            height: Responsive.isLaptopScreen(context)?4700:3750, // Limiting the height of the container
             child: Stack(
               children: [
                 // Background image
@@ -67,11 +67,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 // GIF
                 Positioned(
-                  left: -1,
-                  top: -35,
+                  left: Responsive.isLaptopScreen(context)?-1:0,
+                  top:  Responsive.isLaptopScreen(context)?-35:-10,
                   child: SizedBox(
-                    width: 300,
-                    height: 260,
+                    width: Responsive.isLaptopScreen(context)?300:150,
+                    height: Responsive.isLaptopScreen(context)?260:100,
                     child: Image.asset(
                       "Assets/111.gif",
                       fit: BoxFit.fill,
@@ -79,73 +79,95 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Positioned(
-                  right: 1,
-                  top: 1,
+                  right: 4,
+                  top: 4,
+
                   child: IconButton(
-                    color: Colors.white,
+                    color: Colors.blue.shade400,
+                    hoverColor: Colors.blueGrey.shade100,
                     onPressed: () {
                       _scaffoldKey.currentState?.openEndDrawer();
                     },
-                    icon: const Icon(Icons.menu),
+                    icon: const Icon(Icons.menu_open_outlined,),
                   ),
                 ),
                 AnimatedPositioned(
                   duration: const Duration(milliseconds: 1000),
-                  left: _isVisible ? 100 : -300,
-                  top: 180,
+                  left:  Responsive.isLaptopScreen(context)?100:10,
+                  top:  Responsive.isLaptopScreen(context)?180:100,
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 500),
-                    width: _isVisible ? 1500 : 100,
+                    width:  Responsive.isLaptopScreen(context)?1500:800,
                     child: Row(
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AnimatedTextKit(
-                              isRepeatingAnimation: false,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  "Hello, I'm",
-                                  textStyle: const TextStyle(
-                                      fontSize: 32, color: Colors.white54),
-                                  speed: const Duration(milliseconds: 200),
-                                ),
-                              ],
-                            ),
-                            AnimatedTextKit(
-                              isRepeatingAnimation: false,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  "Mohith B M",
-                                  textStyle: const TextStyle(
-                                      fontSize: 36,
-                                      color: Color.fromARGB(255, 77, 193, 255)),
-                                  speed: const Duration(milliseconds: 200),
-                                ),
-                              ],
-                            ),
-                            AnimatedTextKit(
-                              isRepeatingAnimation: false,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  "Flutter Developer",
-                                  textStyle: const TextStyle(
-                                      fontSize: 36, color: Colors.white),
-                                  speed: const Duration(milliseconds: 300),
-                                ),
-                              ],
-                            ),
-                            const FadeInAnimation(
-                              duration: Duration(milliseconds: 300),
-                              curve: Curves.linear,
-                              child: Text(
-                                "Building Apps  |   Mohith, Flutter Dev",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white60),
+                            FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: AnimatedTextKit(
+                                isRepeatingAnimation: false,
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    "Hello, I'm",
+                                    textStyle: TextStyle(
+                                      fontSize: Responsive.isLaptopScreen(context) ? 32 : 14,
+                                      color: Colors.white54,
+                                    ),
+                                    speed: const Duration(milliseconds: 200),
+                                  ),
+                                ],
                               ),
                             ),
-                            const SizedBox(
-                              height: 50,
+                            FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: AnimatedTextKit(
+                                isRepeatingAnimation: false,
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    "Mohith B M",
+                                    textStyle: TextStyle(
+                                      fontSize: Responsive.isLaptopScreen(context) ? 36 : 14,
+                                      color: Color.fromARGB(255, 77, 193, 255),
+                                    ),
+                                    speed: const Duration(milliseconds: 200),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: AnimatedTextKit(
+                                isRepeatingAnimation: false,
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    "Flutter Developer",
+                                    textStyle: TextStyle(
+                                      fontSize: Responsive.isLaptopScreen(context) ? 36 : 14,
+                                      color: Colors.white,
+                                    ),
+                                    speed: const Duration(milliseconds: 300),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: FadeInAnimation(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.linear,
+                                child: Text(
+                                  "Building Apps  |   Mohith, Flutter Dev",
+                                  style: TextStyle(
+                                    fontSize: Responsive.isLaptopScreen(context) ? 20 : 10,
+                                    color: Colors.white60,
+                                  ),
+                                ),
+                              ),
+                            ),
+                             SizedBox(
+                              height: Responsive.isLaptopScreen(context) ? 50 : 20,
                             ),
                             FadeInAnimation(
                               duration: const Duration(milliseconds: 3000),
@@ -160,17 +182,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                   );
                                 },
                                 child: Container(
-                                  width: 140,
-                                  height: 35,
+                                  width:  Responsive.isLaptopScreen(context)?140:70,
+                                  height:  Responsive.isLaptopScreen(context)?35:25,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color: Colors.blue,
                                   ),
-                                  child: const Center(
+                                  child:  Center(
                                     child: Text(
                                       "Resume  >",
                                       style: TextStyle(
-                                          fontSize: 18, color: Colors.white70),
+                                          fontSize:  Responsive.isLaptopScreen(context)?18:12, color: Colors.white70),
                                     ),
                                   ),
                                 ),
@@ -179,41 +201,41 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                          SizedBox(
-                          width: _isVisible?300:50,
+                          width:  Responsive.isLaptopScreen(context)?300:5
                         ),
                         Padding(
-                          padding:  EdgeInsets.symmetric(horizontal:_isVisible?70:25 ),
+                          padding:  EdgeInsets.symmetric(horizontal: Responsive.isLaptopScreen(context)?75:5 ),
                           child: FadeInAnimation(
                             duration: const Duration(milliseconds: 5000),
                             curve: Curves.linear,
                             child: SizedBox(
-                              height: 450,
-                              width: 450,
+                              height:  Responsive.isLaptopScreen(context)?450:200,
+                              width:  Responsive.isLaptopScreen(context)?450:200,
                               child: Stack(
                                 children: [
-                                  const Positioned(
+                                   Positioned(
                                     bottom: 1,
                                     right: 1,
                                     child: SizedBox(
-                                      height: 450,
-                                      width: 450,
+                                      height:  Responsive.isLaptopScreen(context)?450:200,
+                                      width:  Responsive.isLaptopScreen(context)?450:200,
                                       child: CircleAvatar(
                                         backgroundColor: Colors.blue,
-                                        radius: 120,
+                                        radius:  Responsive.isLaptopScreen(context)?120:70,
                                       ),
                                     ),
                                   ),
-                                  const Center(
+                                   Center(
                                     child: CircleAvatar(
-                                      radius: 210,
+                                      radius:  Responsive.isLaptopScreen(context)?210:110,
                                       backgroundImage: AssetImage("Assets/mine.png"),
                                     ),
                                   ),
                                   Positioned(
                                     bottom: 1,
                                     child: Container(
-                                      height: 100,
-                                      width: 100,
+                                      height:  Responsive.isLaptopScreen(context)?100:50,
+                                      width:  Responsive.isLaptopScreen(context)?100:50,
                                       decoration: const FlutterLogoDecoration(),
                                     ),
                                   ),
@@ -227,46 +249,51 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Positioned(
-                  top: 700,
-                  left: 0,
+                  top: Responsive.isLaptopScreen(context) ? 700 : 350,
+                  left:  Responsive.isLaptopScreen(context)?100:10,
                   child: AnimationConfiguration.synchronized(
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       color: Colors.transparent,
-                      padding: const EdgeInsets.all(20),
+                      padding:  EdgeInsets.all( Responsive.isLaptopScreen(context)?20:5),
                       child: const AboutMe(),
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 1450,
+                  left:  Responsive.isLaptopScreen(context)?100:10,
+                  top: Responsive.isLaptopScreen(context) ? 1450 : 760,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    padding:  EdgeInsets.symmetric(horizontal:  Responsive.isLaptopScreen(context)?100:40),
                     child: Container(
-                      height: 400,
-                      width: 1200,
+                      height: Responsive.isLaptopScreen(context) ? 400 : 400,
+                      width: Responsive.isLaptopScreen(context) ? 1200 : 640,
                       decoration: BoxDecoration(
                         color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(35),
+                        borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 35 : 20),
                       ),
                       child: const MyExperience(),
                     ),
                   ),
                 ),
-                const Positioned(
-                  top: 1850,
+                 Positioned(
+                  left: Responsive.isLaptopScreen(context)?100:10,
+                  top: Responsive.isLaptopScreen(context)?1850:1050,
                   child: MySkills(),
                 ),
-                const Positioned(
-                  top: 2200,
+                 Positioned(
+                   left: Responsive.isLaptopScreen(context)?100:10,
+                  top: Responsive.isLaptopScreen(context)?2200:1400,
                   child: MyWorks(),
                 ),
-                const Positioned(
-                  top: 3950,
+                 Positioned(
+                   left: Responsive.isLaptopScreen(context)?100:10,
+                  top: Responsive.isLaptopScreen(context)?3950:3100,
                   child: InfoContainer(),
                 ),
-                const Positioned(
-                  top: 4630,
+                 Positioned(
+                   left:Responsive.isLaptopScreen(context)?100:10,
+                  top: Responsive.isLaptopScreen(context)?4630:3690,
                   right: 1,
                   child: SocialMedia(),
                 ),
