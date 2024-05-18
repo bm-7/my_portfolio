@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                          SizedBox(
-                          width:  Responsive.isLaptopScreen(context)?300:5
+                          width:  Responsive.isLaptopScreen(context)?260:5
                         ),
                         Padding(
                           padding:  EdgeInsets.symmetric(horizontal: Responsive.isLaptopScreen(context)?75:5 ),
@@ -221,21 +221,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                       width:  Responsive.isLaptopScreen(context)?450:200,
                                       child: CircleAvatar(
                                         backgroundColor: Colors.blue,
-                                        radius:  Responsive.isLaptopScreen(context)?120:70,
+                                        radius:  Responsive.isLaptopScreen(context)?120:50,
                                       ),
                                     ),
                                   ),
                                    Center(
                                     child: CircleAvatar(
-                                      radius:  Responsive.isLaptopScreen(context)?210:110,
+                                      radius:  Responsive.isLaptopScreen(context)?210:93,
                                       backgroundImage: AssetImage("Assets/mine.png"),
                                     ),
                                   ),
                                   Positioned(
                                     bottom: 1,
                                     child: Container(
-                                      height:  Responsive.isLaptopScreen(context)?100:50,
-                                      width:  Responsive.isLaptopScreen(context)?100:50,
+                                      height:  Responsive.isLaptopScreen(context)?100:40,
+                                      width:  Responsive.isLaptopScreen(context)?100:40,
                                       decoration: const FlutterLogoDecoration(),
                                     ),
                                   ),
@@ -283,7 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                  Positioned(
                    left: Responsive.isLaptopScreen(context)?100:10,
-                  top: Responsive.isLaptopScreen(context)?2200:1400,
+                  top: Responsive.isLaptopScreen(context)?2200:1230,
                   child: MyWorks(),
                 ),
                  Positioned(

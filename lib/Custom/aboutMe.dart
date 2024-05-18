@@ -13,6 +13,14 @@ class AboutMe extends StatefulWidget {
 }
 
 class _AboutMeState extends State<AboutMe> {
+  void launchPhoneCall() async {
+    const url = 'tel:+917259282655'; // Replace with your phone number
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
   bool changecolor = false; // Moved inside the widget's state
   final bool _isVisible = true;
   @override
@@ -23,12 +31,12 @@ class _AboutMeState extends State<AboutMe> {
          Text(
           "About Me :",
           style: TextStyle(
-            fontSize: Responsive.isLaptopScreen(context) ? 24 : 12,
+            fontSize: Responsive.isLaptopScreen(context) ? 24 : 10,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
-         SizedBox(height: Responsive.isLaptopScreen(context) ? 25 : 15),
+         SizedBox(height: Responsive.isLaptopScreen(context) ? 25 : 12),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -38,11 +46,11 @@ class _AboutMeState extends State<AboutMe> {
                  Text(
                   "Crafting excellence in Flutter development",
                   style: TextStyle(
-                    fontSize: Responsive.isLaptopScreen(context) ? 26 : 12,
+                    fontSize: Responsive.isLaptopScreen(context) ? 26 : 10,
                     color: Color.fromARGB(255, 77, 193, 255),
                   ),
                 ),
-                const SizedBox(height: 40),
+                 SizedBox(height: Responsive.isLaptopScreen(context) ?40: 10),
                 Container(
                   width: Responsive.isLaptopScreen(context) ? 700 :200,
                   height: 220,
@@ -50,7 +58,7 @@ class _AboutMeState extends State<AboutMe> {
                     "I'm Mohith B M, a mobile app developer, particularly in Flutter. I'm always looking to learn and improve. More than just coding, I believe in never giving up, a trait that fuels my passion for building innovative and user-friendly mobile experiences.",
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      fontSize: Responsive.isLaptopScreen(context) ? 20 : 12,
+                      fontSize: Responsive.isLaptopScreen(context) ? 20 : 9,
                       fontWeight: FontWeight.w400,
                       color: Colors.white54,
                     ),
@@ -77,15 +85,15 @@ class _AboutMeState extends State<AboutMe> {
                           });
                         },
                         child: Container(
-                          width: Responsive.isLaptopScreen(context) ? 600 : 300,
+                          width: Responsive.isLaptopScreen(context) ? 600 : 600,
                           height: Responsive.isLaptopScreen(context) ? 200 : 130,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 25 : 10),
+                            borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 25 : 15),
                           ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
+mainAxisAlignment: MainAxisAlignment.start
+                            ,crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ListTile(
                                 onTap: launchGmail,
@@ -110,6 +118,7 @@ class _AboutMeState extends State<AboutMe> {
                                 ),
                               ),
                               ListTile(
+                                onTap: launchPhoneCall,
                                 leading: CircleAvatar(
                                   radius:  Responsive.isLaptopScreen(context) ? 22 : 14,
                                   backgroundColor:
@@ -143,13 +152,13 @@ class _AboutMeState extends State<AboutMe> {
                 duration: const Duration(milliseconds: 3000),
                 curve: Curves.linear,
                 child: Container(
-                  width:  Responsive.isLaptopScreen(context) ? 600 : 250,
+                  width:  Responsive.isLaptopScreen(context) ? 600 : 200,
                   color: Colors.transparent,
                   child: Stack(
                     children: [
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 10),
                           child: Container(
                             width: Responsive.isLaptopScreen(context) ? 300 : 150,
                             height: Responsive.isLaptopScreen(context) ? 400 : 250,
@@ -162,10 +171,10 @@ class _AboutMeState extends State<AboutMe> {
                         ),
                       ),
                       Positioned(
-                        top: Responsive.isLaptopScreen(context) ? 200 : 140,
+                        top: Responsive.isLaptopScreen(context) ? 200 : 160,
                         left: 0,
                         child: Container(
-                          width: Responsive.isLaptopScreen(context) ? 260 : 160,
+                          width: Responsive.isLaptopScreen(context) ? 260 : 130,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 20 : 10),
@@ -197,10 +206,10 @@ class _AboutMeState extends State<AboutMe> {
                         ),
                       ),
                       Positioned(
-                        top: Responsive.isLaptopScreen(context) ? 300 : 190,
-                        left: Responsive.isLaptopScreen(context) ? 40 : 20,
+                        top: Responsive.isLaptopScreen(context) ? 300 : 210,
+                        left: Responsive.isLaptopScreen(context) ? 40 : 0,
                         child: Container(
-                          width: Responsive.isLaptopScreen(context) ? 230 : 160,
+                          width: Responsive.isLaptopScreen(context) ? 230 : 120,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context) ? 20 : 10),
@@ -254,4 +263,7 @@ void launchGmail() async {
   } else {
     throw 'Could not launch Gmail';
   }
+
+
+
 }

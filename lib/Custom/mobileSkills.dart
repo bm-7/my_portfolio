@@ -59,10 +59,10 @@ class _MyMobileSkillsState extends State<MyMobileSkills> {
                         )
                       ]),
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: Responsive.isLaptopScreen(context)?20:5,
                     ),
-                    const Padding(
+                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5),
                       child: Text(
                         "My experience about building impactful websites and apps\n"
@@ -70,7 +70,7 @@ class _MyMobileSkillsState extends State<MyMobileSkills> {
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           letterSpacing: BorderSide.strokeAlignCenter,
-                          fontSize: 18,
+                          fontSize: Responsive.isLaptopScreen(context)?18:12,
                           color: Colors.white60,
                         ),
                       ),
@@ -80,7 +80,7 @@ class _MyMobileSkillsState extends State<MyMobileSkills> {
               ),
 
               Container(
-                width: 900,
+                width: Responsive.isLaptopScreen(context)?900:500,
                 color: Colors.transparent,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 50),
