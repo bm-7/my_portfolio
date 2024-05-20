@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/Custom/Responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Address extends StatefulWidget {
@@ -14,15 +15,15 @@ class _AddressState extends State<Address> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+         Text(
           "Address",
           style: TextStyle(
-            fontSize: 22,
+            fontSize: Responsive.isLaptopScreen(context)?22:12,
             fontWeight: FontWeight.bold,
             color: Colors.white70,
           ),
         ),
-        const SizedBox(height: 30),
+         SizedBox(height: Responsive.isLaptopScreen(context)?30:10),
         Container(
           height: 200,
           width: 450,
@@ -34,13 +35,13 @@ class _AddressState extends State<Address> {
                   style: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w500,
-                    fontSize: 18,
+                    fontSize:  Responsive.isLaptopScreen(context)?18:10,
                   ),
                 ),
                 leading: Icon(
                   Icons.location_on_outlined,
                   color: Colors.blue,
-                  size: 24,
+                  size:  Responsive.isLaptopScreen(context)?24:12,
                 ),
               ),
               ListTile(
@@ -50,13 +51,13 @@ class _AddressState extends State<Address> {
                   style: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w500,
-                    fontSize: 18,
+                    fontSize:  Responsive.isLaptopScreen(context)?18:10,
                   ),
                 ),
                 leading: Icon(
                   Icons.mail_outline_rounded,
                   color: Colors.blue,
-                  size: 24,
+                  size:  Responsive.isLaptopScreen(context)?24:12,
                 ),
               ),
               ListTile(
@@ -65,13 +66,13 @@ class _AddressState extends State<Address> {
                   style: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w500,
-                    fontSize: 18,
+                    fontSize:  Responsive.isLaptopScreen(context)?18:10,
                   ),
                 ),
                 leading: Icon(
                   Icons.phone_enabled_outlined,
                   color: Colors.blue,
-                  size: 24,
+                  size:  Responsive.isLaptopScreen(context)?24:12,
                 ),
               ),
             ],

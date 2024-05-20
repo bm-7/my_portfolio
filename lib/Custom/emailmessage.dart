@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'Responsive.dart';
+
 class EmailMe extends StatefulWidget {
   const EmailMe({super.key});
 
@@ -51,8 +53,8 @@ class _EmailMeState extends State<EmailMe> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 550,
-      width: 500,
+      height: Responsive.isLaptopScreen(context)?550:450,
+      width: Responsive.isLaptopScreen(context)?500:200,
       child: Form(
         key: _formKey,
         child: Column(
@@ -60,20 +62,20 @@ class _EmailMeState extends State<EmailMe> {
           children: [
             Text(
               "Full Name",
-              style: TextStyle(color: Colors.white70, fontSize: 18),
+              style: TextStyle(color: Colors.white70, fontSize: Responsive.isLaptopScreen(context)?18:9),
             ),
             SizedBox(
               height: 10,
             ),
             TextFormField(
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style:  TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9),
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person_outline),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context)?20:8)),
                   hintText: "eg.Gagan K M",
                   hintStyle:
-                      const TextStyle(color: Colors.white, fontSize: 16)),
+                       TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9)),
               controller: nameController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -87,20 +89,20 @@ class _EmailMeState extends State<EmailMe> {
             ),
             Text(
               "Subject",
-              style: TextStyle(color: Colors.white70, fontSize: 18),
+              style: TextStyle(color: Colors.white70, fontSize: Responsive.isLaptopScreen(context)?18:9),
             ),
             SizedBox(
               height: 10,
             ),
             TextFormField(
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style:  TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:10),
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.subject_outlined),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context)?20:8)),
                   hintText: "subject",
                   hintStyle:
-                      const TextStyle(color: Colors.white, fontSize: 16)),
+                       TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9)),
               controller: subjectController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -114,21 +116,21 @@ class _EmailMeState extends State<EmailMe> {
             ),
             Text(
               "Email Address",
-              style: TextStyle(color: Colors.white70, fontSize: 18),
+              style: TextStyle(color: Colors.white70, fontSize: Responsive.isLaptopScreen(context)?18:9),
             ),
             SizedBox(
               height: 10,
             ),
             TextFormField(
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style:  TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9),
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email_outlined),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context)?20:8),
                   ),
                   hintText: "abc@gmail.com",
                   hintStyle:
-                      const TextStyle(color: Colors.white, fontSize: 16)),
+                       TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9)),
               controller: emailController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -144,7 +146,7 @@ class _EmailMeState extends State<EmailMe> {
             ),
             Text(
               "Message",
-              style: TextStyle(color: Colors.white70, fontSize: 18),
+              style: TextStyle(color: Colors.white70, fontSize: Responsive.isLaptopScreen(context)?18:9),
             ),
             SizedBox(
               height: 10,
@@ -152,13 +154,13 @@ class _EmailMeState extends State<EmailMe> {
             TextFormField(
               maxLength: 600,
               maxLines: 4,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style:  TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9),
               decoration: InputDecoration(
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(Responsive.isLaptopScreen(context)?20:8)),
                   hintText: "Write message",
                   hintStyle:
-                      const TextStyle(color: Colors.white, fontSize: 16)),
+                       TextStyle(color: Colors.white, fontSize: Responsive.isLaptopScreen(context)?16:9)),
               controller: msgController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -181,9 +183,9 @@ class _EmailMeState extends State<EmailMe> {
                     sendEmail();
                   }
                 },
-                child: const Text(
+                child:  Text(
                   "Submit",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontSize: Responsive.isLaptopScreen(context)?18:9, color: Colors.white),
                 ),
               ),
             ),

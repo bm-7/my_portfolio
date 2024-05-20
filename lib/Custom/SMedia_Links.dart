@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'Responsive.dart';
+
 class SocialMedia extends StatefulWidget {
   const SocialMedia({super.key});
 
   @override
   State<SocialMedia> createState() => _SocialMediaState();
 }
+
 Future<void> _launchUrl(String url) async {
   if (!await launchUrl(Uri.parse(url))) {
     throw Exception('Could not launch $url');
@@ -30,7 +33,7 @@ class _SocialMediaState extends State<SocialMedia> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          const SizedBox(width: 20),
+          SizedBox(width: Responsive.isLaptopScreen(context) ? 20 : 5),
           InkWell(
             onTap: () {
               // Scroll to the desired position
@@ -45,38 +48,56 @@ class _SocialMediaState extends State<SocialMedia> {
               style: TextStyle(color: Colors.white70),
             ),
           ),
-
-
-
-
-          const SizedBox(width: 20),
+          SizedBox(width: Responsive.isLaptopScreen(context) ? 20 : 5),
           GestureDetector(
             onTap: () {
               _launchUrl('https://www.linkedin.com/in/bm72');
             },
-            child: const Text("LinkedIn",style: TextStyle(color: Colors.white70),),
+            child: Text(
+              "LinkedIn",
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: Responsive.isLaptopScreen(context) ? 14 : 8),
+            ),
           ),
-          const SizedBox(width: 40),
+          SizedBox(width: Responsive.isLaptopScreen(context) ? 40 : 10),
           GestureDetector(
             onTap: () {
               _launchUrl('https://github.com/bm-7');
             },
-            child: const Text("GitHub",style: TextStyle(color: Colors.white70),),
+            child: Text(
+              "GitHub",
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: Responsive.isLaptopScreen(context) ? 14 : 8),
+            ),
           ),
-          const SizedBox(width: 40),
+          SizedBox(width: Responsive.isLaptopScreen(context) ? 40 : 10),
           GestureDetector(
             onTap: () {
               _launchUrl('https://twitter.com/MohithBunt');
             },
-            child: const Text("Twitter",style: TextStyle(color: Colors.white70),),
+            child: Text(
+              "Twitter",
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: Responsive.isLaptopScreen(context) ? 14 : 8),
+            ),
           ),
-          const SizedBox(width: 40),
+          SizedBox(width: Responsive.isLaptopScreen(context) ? 40 : 10),
           GestureDetector(
             onTap: () {
-              _launchUrl('https://www.instagram.com/_mohith_bunt_?igsh=Mm0zZ2R5amQwZTJu');
+              _launchUrl(
+                  'https://www.instagram.com/_mohith_bunt_?igsh=Mm0zZ2R5amQwZTJu');
             },
-            child: const Text("Instagram",style: TextStyle(color: Colors.white70),),
-          ),const SizedBox(width: 40),
+            child: Text(
+              "Instagram",
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: Responsive.isLaptopScreen(context) ? 14 : 8),
+            ),
+          ),
+          SizedBox(width: Responsive.isLaptopScreen(context) ? 40 : 10),
         ],
       ),
     );
