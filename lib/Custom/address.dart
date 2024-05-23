@@ -60,7 +60,7 @@ class _AddressState extends State<Address> {
                   size:  Responsive.isLaptopScreen(context)?24:12,
                 ),
               ),
-              ListTile(
+              ListTile(onTap: launchPhoneCall,
                 title: Text(
                   "+91 7259282655",
                   style: TextStyle(
@@ -81,7 +81,14 @@ class _AddressState extends State<Address> {
       ],
     );
   }
-
+  void launchPhoneCall() async {
+    const url = 'tel:+917259282655'; // Replace with your phone number
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
   void launchGmail() async {
     final Uri _emailLaunchUri = Uri(
       scheme: 'mailto',

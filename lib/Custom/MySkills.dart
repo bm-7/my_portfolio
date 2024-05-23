@@ -99,60 +99,64 @@ class _MySkillsState extends State<MySkills> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(
-                            Responsive.isLaptopScreen(context) ? 8 : 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _buildContainer(
-                              changecolor1,
-                              true,
-                              'Flutter',
-                              '',
-                              () {
-                                setState(() {
-                                  changecolor1 = !changecolor1;
-                                });
-                              },
-                            ),
-                            _buildContainer(
-                              changecolor2,
-                              false,
-                              'Firebase',
-                              'Assets/firebase.png',
-                              () {
-                                setState(() {
-                                  changecolor2 = !changecolor2;
-                                });
-                              },
-                            ),
-                            _buildContainer(
-                              changecolor3,
-                              false,
-                              'Figma',
-                              'Assets/fig.png',
-                              () {
-                                setState(() {
-                                  changecolor3 = !changecolor3;
-                                });
-                              },
-                            ),
-                            _buildContainer(
-                              changecolor4,
-                              false,
-                              'GitHub',
-                              'Assets/github.png',
-                              () {
-                                setState(() {
-                                  changecolor4 = !changecolor4;
-                                });
-                              },
-                            ),
-                          ],
+                      Flex(direction: Axis.vertical ,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(
+                              Responsive.isLaptopScreen(context) ? 8 : 2),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildContainer(
+                                changecolor1,
+                                true,
+                                'Flutter',
+                                '',
+                                    () {
+                                  setState(() {
+                                    changecolor1 = !changecolor1;
+                                  });
+                                },
+                              ),
+                              _buildContainer(
+                                changecolor2,
+                                false,
+                                'Firebase',
+                                'Assets/firebase.png',
+                                    () {
+                                  setState(() {
+                                    changecolor2 = !changecolor2;
+                                  });
+                                },
+                              ),
+                              _buildContainer(
+                                changecolor3,
+                                false,
+                                'Figma',
+                                'Assets/fig.png',
+                                    () {
+                                  setState(() {
+                                    changecolor3 = !changecolor3;
+                                  });
+                                },
+                              ),
+                              _buildContainer(
+                                changecolor4,
+                                false,
+                                'GitHub',
+                                'Assets/github.png',
+                                    () {
+                                  setState(() {
+                                    changecolor4 = !changecolor4;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
+                      ],)
+
                     ],
                   ),
                 ),
