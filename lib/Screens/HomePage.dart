@@ -1,5 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:my_portfolio/Custom/Custom_Drawer.dart';
@@ -25,30 +25,35 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey skillssrl = GlobalKey();
   final GlobalKey expsrl = GlobalKey();
   final GlobalKey worksrl = GlobalKey();
+  final GlobalKey topsrl = GlobalKey();
 
+  void Scrolltop() {
+    Scrollable.ensureVisible(topsrl.currentContext!,
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
+  }
   void Scrollabtme() {
     Scrollable.ensureVisible(aboutmesrl.currentContext!,
-        duration: Duration(seconds: 2), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
   }
 
   void Scrollcont() {
     Scrollable.ensureVisible(contactsrl.currentContext!,
-        duration: Duration(seconds: 2), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
   }
 
   void Scrollskill() {
     Scrollable.ensureVisible(skillssrl.currentContext!,
-        duration: Duration(seconds: 2), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
   }
 
   void Scrollexp() {
     Scrollable.ensureVisible(expsrl.currentContext!,
-        duration: Duration(seconds: 2), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
   }
 
   void Scrollwork() {
     Scrollable.ensureVisible(worksrl.currentContext!,
-        duration: Duration(seconds: 2), curve: Curves.easeInOut);
+        duration: const Duration(seconds: 2), curve: Curves.easeInOut);
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -60,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child: AppBar(
           backgroundColor: Colors.black,
           actions: [
@@ -119,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(width: 120,)
+            const SizedBox(width: 120,)
 ,            IconButton(
               color: Colors.blue.shade400,
               hoverColor: Colors.blueGrey.shade100,
@@ -150,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
       endDrawer: const CustomDrawer(),
       body: AnimationConfiguration.synchronized(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
@@ -177,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    AnimatedPositioned(
+                    AnimatedPositioned(key: topsrl,
                       duration: const Duration(milliseconds: 1000),
                       left: Responsive.isLaptopScreen(context) ? 50 : 10,
                       top: Responsive.isLaptopScreen(context) ? 165 : 100,
@@ -402,8 +407,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       left: Responsive.isLaptopScreen(context) ? 50 : 10,
                       top: Responsive.isLaptopScreen(context) ? 4630 : 3300,
                       right: 1,
-                      child: const SocialMedia(),
+
+                      child: Row(mainAxisAlignment: MainAxisAlignment.end
+                        ,
+                        children: [
+                          InkWell(
+                            onTap: Scrolltop,
+                            child: const Column(
+                              children: [
+                                Icon(Icons.arrow_upward_outlined,color: Colors.white,)
+                              ,  Text("TOP",style: TextStyle(color: Colors.white54),)
+
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: Responsive.isLaptopScreen(context)?300:35,),
+                          const SocialMedia(),
+                        ],
+                      ),
                     ),
+
                   ],
                 ),
               ),

@@ -16,13 +16,6 @@ Future<void> _launchUrl(String url) async {
   }
 }
 
-final ScrollController _scrollController = ScrollController();
-
-void Scroll() {
-  _scrollController.addListener(() {
-    _scrollController.position.minScrollExtent;
-  });
-}
 
 class _SocialMediaState extends State<SocialMedia> {
   @override
@@ -34,20 +27,7 @@ class _SocialMediaState extends State<SocialMedia> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           SizedBox(width: Responsive.isLaptopScreen(context) ? 20 : 5),
-          InkWell(
-            onTap: () {
-              // Scroll to the desired position
-              _scrollController.animateTo(
-                _scrollController.position.minScrollExtent,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-              );
-            },
-            child: const Text(
-              "   __^__  ",
-              style: TextStyle(color: Colors.white70),
-            ),
-          ),
+
           SizedBox(width: Responsive.isLaptopScreen(context) ? 20 : 5),
           GestureDetector(
             onTap: () {
